@@ -17,7 +17,11 @@ var/
 *.egg
 
 # Serverless directories
+node_modules
+package-lock.json
 .serverless
+serverless-dev.yml
+serverless-local.yml
 
 # IDE
 .idea
