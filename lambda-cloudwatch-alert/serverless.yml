@@ -3,32 +3,32 @@ provider:
   name: aws
   runtime: python3.7
   stage: ${opt:stage,'dev'}
-  # 2 - set environment for notification email
+  # 2 - set environment variable for notification email
   environment:
     NOTIFICATION_EMAIL: ${self:custom.${self:provider.stage}.NOTIFICATION_EMAIL}
 
 functions:
   hello:
     handler: handler.hello
-    # define function to set an alarm (functionErrors is an default alarm for this extension)
+    # define function to set an alarm
     alarms:
       - functionErrors
 
 plugins:
   - serverless-python-requirements
-  - serverless-plugin-aws-alerts # 1 - add alert plugin
+  - serverless-plugin-aws-alerts # 1 - add alert plugin (npm i serverless-plugin-aws-alerts)
 
 custom:
   local: ${file(serverless-local.yml)}
   dev: ${file(serverless-dev.yml)}
   pythonRequirements:
     dockerizePip: non-linux
-  # set notification config
+  # 3 - set notification config
   notifications:
     - protocol: email
       endpoint: ${self:provider.environment.NOTIFICATION_EMAIL}
   alerts:
-    # define SNS topics for each kind of CloudWatch alert type (ok, alarm, insufficientData)
+    # 4 - define SNS topics for each kind of CloudWatch alert type (ok, alarm, insufficientData)
     topics:
       alarm:
         # create an SNS topic for the cloudwatch alert
@@ -38,7 +38,7 @@ custom:
 #      ok:
 #        topic: ...
 #        notification: ...
-    # custom definition for the function
+    # 5 - set custom definitions for the function (functionErrors is default from the plugin, you can create your own)
     definitions:
       functionErrors:
         period: 3600
