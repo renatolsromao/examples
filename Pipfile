@@ -9,6 +9,8 @@ verify_ssl = true
 boto3 = "*"
 sqlalchemy = "*"
 psycopg2-binary = "*"
+graphqlclient = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.7"

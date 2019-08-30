@@ -28,3 +28,7 @@ serverless-local.yml
 
 # Pipenv
 Pipfile.lock
+
+# env
+.env
+graphql-client/.env
