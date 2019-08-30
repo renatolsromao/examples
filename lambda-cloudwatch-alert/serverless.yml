@@ -27,7 +27,7 @@ custom:
   notifications:
     - protocol: email
       endpoint: ${self:provider.environment.NOTIFICATION_EMAIL}
-  alerts:
+    alerts:
     # 4 - define SNS topics for each kind of CloudWatch alert type (ok, alarm, insufficientData)
     topics:
       alarm:
