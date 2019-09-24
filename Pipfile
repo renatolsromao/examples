@@ -11,6 +11,8 @@ sqlalchemy = "*"
 psycopg2-binary = "*"
 graphqlclient = "*"
 python-dotenv = "*"
+pandas = "*"
+dash = "*"
 
 [requires]
 python_version = "3.7"
