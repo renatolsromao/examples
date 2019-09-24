@@ -6,13 +6,9 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-boto3 = "*"
-sqlalchemy = "*"
-psycopg2-binary = "*"
-graphqlclient = "*"
+alembic = "*"
 python-dotenv = "*"
-pandas = "*"
-dash = "*"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.7"
